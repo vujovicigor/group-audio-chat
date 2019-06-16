@@ -1,0 +1,98 @@
+<nav fxDUMMY>
+	<label>
+		<input type="checkbox">
+		<header>
+			<a href="#"><!-- <img src="img/bareCSS-small.svg"> -->Group<b>Audio</b>Chat</a>
+		</header>
+		
+		<ul>
+			<li><a href="#about">About</a></li>
+      <li><a href="#change-log">Change log</a></li>
+      <!--
+			<li><a href="#install">Install</a></li>
+			<li>
+				<a>Components</a>
+				<menu>
+					<menuitem><a href="#navigation">Navigation</a></menuitem>
+					<menuitem><a href="#sections">Sections</a></menuitem>
+					<menuitem><a href="#typography">Typography</a></menuitem>
+					<menuitem><a href="#buttons">Buttons</a></menuitem>
+					<menuitem><a href="#tooltips">Tooltips</a></menuitem>
+					<menuitem><a href="#forms">Forms</a></menuitem>
+					<menuitem><a href="#code">Code</a></menuitem>
+					<menuitem><a href="#blockquote">Blockquote</a></menuitem>
+					<menuitem><a href="#lists">Lists</a></menuitem>
+					<menuitem><a href="#tables">Tables</a></menuitem>
+					<menuitem><a href="#grid">Grid</a></menuitem>
+					<menuitem><a href="#cards">Cards</a></menuitem>
+					<menuitem><a href="#utility-attributes">Utility Attributes</a></menuitem>
+					<menuitem><a href="#footer">Footer</a></menuitem>
+				</menu>
+      </li>
+      -->
+		</ul>
+	</label>
+</nav>
+
+
+<!-- banner
+
+-->
+<QRCode text="{{test}}"></QRCode>
+<!--
+<section>
+		<div class="title">
+      <div style="float:right" id="qrcode"></div>
+			<h1><b>VIDEO</b>MEETING</h1>
+			<p>WebRTC</p>
+		</div>
+</section>
+-->
+
+{{#each final_transcript:k}}
+<b>{{final_transcript[k]}}&nbsp;</b>
+{{/each}}
+<span>&nbsp;{{interim_transcript}}</span>
+<br>
+<!--{{#if localsrc}} -->
+<!-- <audio id="localVideo" srcObject="{{localsrc}}" muted="{{false}}" controls volume="true" autoplay></audio> -->
+  <video id="localVideo" srcObject="{{localsrc}}"  muted="{{true}}" controls  autoPlay></video>
+<!--{{/if}} -->
+
+{{#each PEERS:key}}
+ {{#if .ready}}
+  x{{remotesrc}}x
+  <video id="{{key}}"  muted="{{false}}" controls volume="true" autoplay ></video>
+  {{/if}}
+{{/each}}
+
+{{#chatdata}}
+<div>
+  <span>{{user}}:</span>
+   <b>{{data}}</b>
+</div>
+{{/chatdata}}
+<!--
+<video controls autoplay></video>
+-->
+<script>
+    component.exports ={
+        onrender: function ( options ) {
+            var self = this;
+/*
+						getScreenId(function (error, sourceId, screen_constraints) {
+								navigator.getUserMedia = navigator.mozGetUserMedia || navigator.webkitGetUserMedia;
+								navigator.getUserMedia(screen_constraints, function (stream) {
+										document.querySelector('video').src = URL.createObjectURL(stream);
+								}, function (error) {
+										console.error(error);
+								});
+						});
+*/
+        },
+        data:function() { 
+            return { 
+            }
+        }        
+    }
+</script>

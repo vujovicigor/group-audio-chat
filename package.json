@@ -1,0 +1,22 @@
+{
+  "name": "groupchat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "qrcode": "^0.8.1",
+    "serve-static": "^1.14.1",
+    "simple-peer": "^8.1.0",
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3",
+    "url": "^0.11.0",
+    "wrtc": "^0.4.1"
+  }
+}

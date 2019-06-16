@@ -1,0 +1,23 @@
+<canvas id="qrcanvas">
+</canvas>
+<script>
+    component.exports ={
+        onrender: function ( options ) {
+            var self = this;
+            var QRCode = require('qrcode');
+
+            this.observe('text', function(text){
+              if (!text) return;
+              QRCode.toCanvas(self.nodes.qrcanvas, text, function (error) {
+                if (error) console.error(error)
+                console.log('success!');
+              })
+            }, {init:true})
+        },
+        data:function() { 
+            return { 
+                text:location.href // odje stavi null 
+            }
+        }        
+    }
+</script>

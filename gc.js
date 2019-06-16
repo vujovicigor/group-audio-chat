@@ -26,7 +26,7 @@ handler);
 var io = require('socket.io')(app);
 var url = require('url');
 
-var PORT = 81//443
+var PORT = 80//443
 app.listen(PORT);
 console.log('listening on '+PORT);
 
